@@ -133,13 +133,38 @@ typedef struct
 	lv_obj_t *Game_View_label_newscores;
 	lv_obj_t *Panel_View;
 	bool Panel_View_del;
-	lv_obj_t *Panel_View_tabview_1;
-	lv_obj_t *Panel_View_tabview_1_tab_1;
-	lv_obj_t *Panel_View_tabview_1_tab_2;
-	lv_obj_t *Panel_View_tabview_1_tab_3;
-	lv_obj_t *Panel_View_img_1;
-	lv_obj_t *Panel_View_img_2;
-	lv_obj_t *Panel_View_img_3;
+	lv_obj_t *Panel_View_cont_panel5;
+	lv_obj_t *Panel_View_img_panel5;
+	lv_obj_t *Panel_View_cont_panel4;
+	lv_obj_t *Panel_View_img_panel4;
+	lv_obj_t *Panel_View_cont_panel3;
+	lv_obj_t *Panel_View_img_panel3;
+	lv_obj_t *Panel_View_cont_panel2;
+	lv_obj_t *Panel_View_img_panel2;
+	lv_obj_t *Panel_View_cont_panel1;
+	lv_obj_t *Panel_View_img_panel1;
+	lv_obj_t *Digit_View2;
+	bool Digit_View2_del;
+	lv_obj_t *Digit_View2_img_1;
+	lv_obj_t *Digit_View2_label_1;
+	lv_obj_t *Digit_View2_label_2;
+	lv_obj_t *Digit_View2_label_3;
+	lv_obj_t *Digit_View2_label_4;
+	lv_obj_t *Digit_View3;
+	bool Digit_View3_del;
+	lv_obj_t *Digit_View3_img_1;
+	lv_obj_t *Digit_View3_label_1;
+	lv_obj_t *Digit_View3_label_2;
+	lv_obj_t *Digit_View3_label_3;
+	lv_obj_t *Panel_View2;
+	bool Panel_View2_del;
+	lv_obj_t *Panel_View2_tabview_1;
+	lv_obj_t *Panel_View2_tabview_1_tab_1;
+	lv_obj_t *Panel_View2_tabview_1_tab_2;
+	lv_obj_t *Panel_View2_tabview_1_tab_3;
+	lv_obj_t *Panel_View2_img_1;
+	lv_obj_t *Panel_View2_img_2;
+	lv_obj_t *Panel_View2_img_3;
 }lv_ui;
 
 typedef void (*ui_setup_scr_t)(lv_ui * ui);
@@ -173,6 +198,9 @@ void setup_scr_Wifi_View(lv_ui *ui);
 void setup_scr_Settings_View(lv_ui *ui);
 void setup_scr_Game_View(lv_ui *ui);
 void setup_scr_Panel_View(lv_ui *ui);
+void setup_scr_Digit_View2(lv_ui *ui);
+void setup_scr_Digit_View3(lv_ui *ui);
+void setup_scr_Panel_View2(lv_ui *ui);
 LV_IMG_DECLARE(_3_alpha_240x280);
 LV_IMG_DECLARE(_4_alpha_27x102);
 LV_IMG_DECLARE(_5_alpha_27x142);
@@ -211,9 +239,16 @@ LV_IMG_DECLARE(_tree_small_alpha_27x57);
 LV_IMG_DECLARE(_bird0_alpha_68x41);
 LV_IMG_DECLARE(_bird1_alpha_70x50);
 LV_IMG_DECLARE(_restart_alpha_48x48);
+LV_IMG_DECLARE(_panel5_alpha_163x199);
+LV_IMG_DECLARE(_panel4_alpha_170x207);
+LV_IMG_DECLARE(_panel3_alpha_157x200);
+LV_IMG_DECLARE(_panel2_alpha_160x196);
+LV_IMG_DECLARE(_panel1_alpha_168x194);
+LV_IMG_DECLARE(_smile_alpha_240x280);
+LV_IMG_DECLARE(_earth_alpha_240x280);
 LV_IMG_DECLARE(_panel1_alpha_231x221);
 LV_IMG_DECLARE(_panel2_alpha_231x221);
-LV_IMG_DECLARE(_panel_alpha_228x216);
+LV_IMG_DECLARE(_panel4_alpha_228x216);
 
 LV_FONT_DECLARE(lv_font_montserratMedium_100)
 LV_FONT_DECLARE(lv_font_montserratMedium_16)
@@ -228,6 +263,7 @@ LV_FONT_DECLARE(lv_font_montserratMedium_28)
 LV_FONT_DECLARE(lv_font_montserratMedium_12)
 LV_FONT_DECLARE(lv_font_SourceHanSerifSC_Regular_12)
 LV_FONT_DECLARE(lv_font_montserratMedium_30)
+LV_FONT_DECLARE(lv_font_montserratMedium_34)
 
 
 #ifdef __cplusplus

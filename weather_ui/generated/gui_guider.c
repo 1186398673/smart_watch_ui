@@ -85,14 +85,17 @@ void init_scr_del_flag(lv_ui *ui)
     ui->Settings_View_del = true;
     ui->Game_View_del = true;
     ui->Panel_View_del = true;
+    ui->Digit_View2_del = true;
+    ui->Digit_View3_del = true;
+    ui->Panel_View2_del = true;
 }
 
 void setup_ui(lv_ui *ui)
 {
     init_scr_del_flag(ui);
     init_keyboard(ui);
-    setup_scr_Clock_View(ui);
-    lv_scr_load(ui->Clock_View);
+    setup_scr_Digit_View3(ui);
+    lv_scr_load(ui->Digit_View3);
 }
 
 void init_keyboard(lv_ui *ui)

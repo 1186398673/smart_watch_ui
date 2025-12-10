@@ -28,6 +28,9 @@ void events_init_Wifi_View(lv_ui *ui);
 void events_init_Settings_View(lv_ui *ui);
 void events_init_Game_View(lv_ui *ui);
 void events_init_Panel_View(lv_ui *ui);
+void events_init_Digit_View2(lv_ui *ui);
+void events_init_Digit_View3(lv_ui *ui);
+void events_init_Panel_View2(lv_ui *ui);
 
 #ifdef __cplusplus
 }

@@ -36,12 +36,6 @@ static void Clock_View_event_handler (lv_event_t *e)
             ui_load_scr_animation(&guider_ui, &guider_ui.Settings_View, guider_ui.Settings_View_del, &guider_ui.Clock_View_del, setup_scr_Settings_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
             break;
         }
-        case LV_DIR_BOTTOM:
-        {
-            lv_indev_wait_release(lv_indev_get_act());
-            ui_load_scr_animation(&guider_ui, &guider_ui.Panel_View, guider_ui.Panel_View_del, &guider_ui.Clock_View_del, setup_scr_Panel_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
-            break;
-        }
         default:
             break;
         }
@@ -52,15 +46,35 @@ static void Clock_View_event_handler (lv_event_t *e)
     }
 }
 
+static void Clock_View_img_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_LONG_PRESSED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Panel_View, guider_ui.Panel_View_del, &guider_ui.Clock_View_del, setup_scr_Panel_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_Clock_View (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->Clock_View, Clock_View_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Clock_View_img_1, Clock_View_img_1_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void Digit_View_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
+    case LV_EVENT_LONG_PRESSED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Panel_View, guider_ui.Panel_View_del, &guider_ui.Digit_View_del, setup_scr_Panel_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
     case LV_EVENT_GESTURE:
     {
         lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_get_act());
@@ -75,12 +89,6 @@ static void Digit_View_event_handler (lv_event_t *e)
         {
             lv_indev_wait_release(lv_indev_get_act());
             ui_load_scr_animation(&guider_ui, &guider_ui.Settings_View, guider_ui.Settings_View_del, &guider_ui.Digit_View_del, setup_scr_Settings_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
-            break;
-        }
-        case LV_DIR_BOTTOM:
-        {
-            lv_indev_wait_release(lv_indev_get_act());
-            ui_load_scr_animation(&guider_ui, &guider_ui.Panel_View, guider_ui.Panel_View_del, &guider_ui.Digit_View_del, setup_scr_Panel_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
             break;
         }
         default:
@@ -394,13 +402,13 @@ void events_init_Game_View (lv_ui *ui)
     lv_obj_add_event_cb(ui->Game_View, Game_View_event_handler, LV_EVENT_ALL, ui);
 }
 
-static void Panel_View_img_1_event_handler (lv_event_t *e)
+static void Panel_View_img_panel4_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Clock_View, guider_ui.Clock_View_del, &guider_ui.Panel_View_del, setup_scr_Clock_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.Digit_View2, guider_ui.Digit_View2_del, &guider_ui.Panel_View_del, setup_scr_Digit_View2, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
         break;
     }
     default:
@@ -408,7 +416,21 @@ static void Panel_View_img_1_event_handler (lv_event_t *e)
     }
 }
 
-static void Panel_View_img_2_event_handler (lv_event_t *e)
+static void Panel_View_img_panel3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Digit_View3, guider_ui.Digit_View3_del, &guider_ui.Panel_View_del, setup_scr_Digit_View3, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Panel_View_cont_panel2_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -422,10 +444,175 @@ static void Panel_View_img_2_event_handler (lv_event_t *e)
     }
 }
 
+static void Panel_View_img_panel2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Digit_View, guider_ui.Digit_View_del, &guider_ui.Panel_View_del, setup_scr_Digit_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Panel_View_img_panel1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Clock_View, guider_ui.Clock_View_del, &guider_ui.Panel_View_del, setup_scr_Clock_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_Panel_View (lv_ui *ui)
 {
-    lv_obj_add_event_cb(ui->Panel_View_img_1, Panel_View_img_1_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->Panel_View_img_2, Panel_View_img_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Panel_View_img_panel4, Panel_View_img_panel4_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Panel_View_img_panel3, Panel_View_img_panel3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Panel_View_cont_panel2, Panel_View_cont_panel2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Panel_View_img_panel2, Panel_View_img_panel2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Panel_View_img_panel1, Panel_View_img_panel1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void Digit_View2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_GESTURE:
+    {
+        lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_get_act());
+        switch(dir) {
+        case LV_DIR_LEFT:
+        {
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.Weather_View, guider_ui.Weather_View_del, &guider_ui.Digit_View2_del, setup_scr_Weather_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+            break;
+        }
+        case LV_DIR_RIGHT:
+        {
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.Settings_View, guider_ui.Settings_View_del, &guider_ui.Digit_View2_del, setup_scr_Settings_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+            break;
+        }
+        default:
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Digit_View2_img_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_LONG_PRESSED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Panel_View, guider_ui.Panel_View_del, &guider_ui.Digit_View2_del, setup_scr_Panel_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_Digit_View2 (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->Digit_View2, Digit_View2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Digit_View2_img_1, Digit_View2_img_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void Digit_View3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_GESTURE:
+    {
+        lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_get_act());
+        switch(dir) {
+        case LV_DIR_LEFT:
+        {
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.Weather_View, guider_ui.Weather_View_del, &guider_ui.Digit_View3_del, setup_scr_Weather_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+            break;
+        }
+        case LV_DIR_RIGHT:
+        {
+            lv_indev_wait_release(lv_indev_get_act());
+            ui_load_scr_animation(&guider_ui, &guider_ui.Settings_View, guider_ui.Settings_View_del, &guider_ui.Digit_View3_del, setup_scr_Settings_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+            break;
+        }
+        default:
+            break;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Digit_View3_img_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_LONG_PRESSED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Panel_View, guider_ui.Panel_View_del, &guider_ui.Digit_View3_del, setup_scr_Panel_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_Digit_View3 (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->Digit_View3, Digit_View3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Digit_View3_img_1, Digit_View3_img_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void Panel_View2_img_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Clock_View, guider_ui.Clock_View_del, &guider_ui.Panel_View2_del, setup_scr_Clock_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Panel_View2_img_2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Digit_View, guider_ui.Digit_View_del, &guider_ui.Panel_View2_del, setup_scr_Digit_View, LV_SCR_LOAD_ANIM_NONE, 200, 200, false, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_Panel_View2 (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->Panel_View2_img_1, Panel_View2_img_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Panel_View2_img_2, Panel_View2_img_2_event_handler, LV_EVENT_ALL, ui);
 }
 
 
